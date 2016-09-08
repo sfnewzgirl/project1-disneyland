@@ -22,7 +22,7 @@ function render () {
   $voteList.append(votesHtml);
   }
 
-function onSuccess() {
+function onSuccess(json) {
   allProTips = json;
   render();
 }
