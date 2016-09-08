@@ -9,14 +9,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var db = require('./models');
 
 //ROUTES
+//STATIC ROUTE
 app.use(express.static('public'));
 
+//HOMEPAGE ROUTE
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-//LIST ALL protips
-
+//LIST ALL PROTIPS
 app.get('/api/protips', function (req, res) {
   db.ProTip.find(function (err, protips){
     if (err) {return console.log(err);}
@@ -24,6 +25,15 @@ app.get('/api/protips', function (req, res) {
   });
 });
 
+//LIST ONE PROTIP
+app.get('/api/protips/:id', function (req, res) {
+  db.ProTip.findOne({_id: req.params.id}, function(err, data) {
+    if (err) {return console.log(err);}
+    res.json(data);
+  });
+});
+
+//LIST ONE PROTIP score
 
 
 
