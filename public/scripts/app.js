@@ -10,7 +10,9 @@ function clicker(){
     var count = count - 1;
      $("~ .count", this).text(count);
   }
-    console.log(count);
+
+    var postCalc = count;
+    console.log(postCalc);
 
   $(this).parent().addClass("bump"); // animation on the upvote every 400ms
 
