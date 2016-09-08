@@ -1,5 +1,16 @@
 console.log ('app.js is linked!')
 
+function upVote () {
+  console.log('you pressed up');
+  // $.ajax({
+  //   method: 'PUT',
+  // })
+}
+
+function downVote () {
+  console.log('you pressed down');
+}
+
 function clicker(){
   var count = parseInt($("~ .count", this).text()); //this will be the variable that holds our count
   if($(this).hasClass("up")) {
@@ -26,4 +37,9 @@ function clicker(){
 ///list of all of my listeners that will be active
 function init() {
   $(".increment").click(clicker);
+
+  $('.up').click(upVote);
+
+  $('.down').click(downVote);
+
 }
