@@ -1,7 +1,5 @@
 var mongoose = require("mongoose");
-//find correct connection??
-//this is from personal api
-//mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/personal-api");
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost:3000");
 
 module.exports.Ride = require("./ride");
 module.exports.ProTip = require("./proTip");

@@ -1,0 +1,25 @@
+{
+  "name": "disneyland-app",
+  "version": "1.0.0",
+  "description": "Theme Park Pro Tip App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfnewzgirl/project1-disneyland.git"
+  },
+  "author": "Misha LeClair Andrew Vinocur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfnewzgirl/project1-disneyland/issues"
+  },
+  "homepage": "https://github.com/sfnewzgirl/project1-disneyland#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0"
+  }
+}
