@@ -33,7 +33,7 @@ app.get('/api/protips/:id', function (req, res) {
   });
 });
 
-//LIST ONE PROTIP score
+//UPDATE ONE PROTIP SCORE
 
 
 
@@ -50,7 +50,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api", description: "Homepage"},
       {method: "GET", path: "/api/protips", description: "lists all protips"},
       {method: "GET", path: "/api/protips/:id", description: "lists one protip"},
-      {method: "GET", path: "/api/protips/:id/tipScore", description: "lists one protip score"},
+      {method: "PUT/PATCH", path: "/api/protips/:id", description: "update one protip score"},
       {method: "POST", path: "/api/protips", description: "adds one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id", description: "updates one protip"},
       {method: "DELETE", path: "api/protips/:id", description: "deletes one protips"}
