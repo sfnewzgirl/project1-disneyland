@@ -8,3 +8,17 @@ proTipList.push({
                 tipResource: true,
                 tipResourceInfo: 'https://disneyland.disney.go.com/dining/'
                 });
+
+db.ProTrip.remove({}, function(err,protips) {
+  if (err) {
+    console.log('remove error', err);
+  } else {
+    console.log('removed all protips');
+
+    db.ProTrip.create(proTipList, function (err, protips) {
+      if (err) { return console.log('err', err); }
+      console.log('created', protips.length, 'protips');
+      process.exit();
+    });
+  }
+});
