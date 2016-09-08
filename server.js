@@ -11,10 +11,19 @@ var db = require('./models');
 //ROUTES
 app.use(express.static('public'));
 
-
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+//LIST ALL protips
+
+app.get('/api/protips', function (req, res) {
+  db.ProTip.find(function (err, protips){
+    if (err) {return console.log(err);}
+    res.json(protips);
+  });
+});
+
 
 
 
