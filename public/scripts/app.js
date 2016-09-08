@@ -1,14 +1,38 @@
-console.log ('app.js is linked!')
+console.log ('app.js is linked!');
+
+function upSuccess() {
+  //render () {
+  //  this function will render the updated value to the front page
+  }
+}
+
+function upError(error) {
+   console.log(error);
+}
+
+function downError () {
+  console.log(error);
+}
 
 function upVote () {
   console.log('you pressed up');
-  // $.ajax({
-  //   method: 'PUT',
-  // })
+  $.ajax({
+    method: 'PUT',
+    url: '/api/protips/:id',
+    dataType: 'text',
+    success: upSuccess,
+    error: upError
+  })
 }
 
 function downVote () {
   console.log('you pressed down');
+  $.ajax({
+    method: 'PUT',
+    url: '/api/protips/:id',
+    dataType: 'text',
+    success: downSuccess,
+    error: downError
 }
 
 function clicker(){

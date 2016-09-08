@@ -36,7 +36,7 @@ app.get('/api/protips/:id', function (req, res) {
 //UPDATE ONE PROTIP SCORE
 app.put('/api/protips/:id', function (req, res) {
   db.ProTip.findOne({_id: req.params.id}, function(err, selectedProTip) {
-    selectedProTip.tipScore = req.???.tipScore
+    selectedProTip.tipScore = req.body.tipScore
     selectedCareer.save(function (err, savedUpdate) {
       if (err) {return console.log(err);}
       res.json(savedUpdate);
