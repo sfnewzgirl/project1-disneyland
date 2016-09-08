@@ -1,9 +1,16 @@
 console.log ('app.js is linked!');
 
+// function render () {
+//   var votesHtml = template({ shows: allShows});
+//   $voteList.empty();
+//   $voteList.append(votesHtml);
+// }
+
 function upSuccess() {
-  //render () {
-  //  this function will render the updated value to the front page
-  }
+  // var votesHtml = template({ proTipVote: tipScore });
+  var votesHtml = template({ proTipVote: [{tipScore : 0, _id: 2}] });
+  $voteList.empty();
+  $voteList.append(votesHtml);
 }
 
 function upError(error) {
@@ -22,7 +29,7 @@ function upVote () {
     dataType: 'text',
     success: upSuccess,
     error: upError
-  })
+  });
 }
 
 function downVote () {
@@ -33,6 +40,7 @@ function downVote () {
     dataType: 'text',
     success: downSuccess,
     error: downError
+  });
 }
 
 function clicker(){
@@ -59,11 +67,17 @@ function clicker(){
 
 
 ///list of all of my listeners that will be active
-function init() {
+// function init() {
+$(document).ready(function() {
+  $voteList = $('#voteWrapper');
+
+  var source = $('#voteTile').html();
+  template = Handlebars.compile(source);
+
   $(".increment").click(clicker);
 
   $('.up').click(upVote);
 
   $('.down').click(downVote);
-
-}
+})
+// };
