@@ -8,6 +8,7 @@ var ProTipSchema = new Schema({
   // comments: [Comment.schema]
   // tipResource: Boolean,
   // tipResourceInfo: String
+  comments: [ String ]
 });
 
 var ProTip = mongoose.model('ProTip', ProTipSchema);

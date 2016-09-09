@@ -147,6 +147,8 @@ function downVote (event) {
 
 function showCommentForm (event) {
   console.log('show comment form');
+  // event.preventDefault();
+  // $('.protipList'+$(this).attr('data-id')).show();
 }
 
 function deleteProTip (event) {
