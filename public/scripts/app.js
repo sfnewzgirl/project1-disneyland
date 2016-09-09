@@ -6,20 +6,23 @@ console.log ('app.js is linked!');
 //   $voteList.append(votesHtml);
 // }
 
-function upSuccess() {
-  // var votesHtml = template({ proTipVote: tipScore });
-  var votesHtml = template({ proTipVote: [{tipScore : 3, _id: 2}] });
+function upSuccess(json) {
+  allProTips = json;
+  $voteList = $('#voteWrapper');
+  var source = $('#voteTile').html();
+  var template = Handlebars.compile(source);
+  var votesHtml = template({ proTipVote: allProTips });
   // $voteList.empty();
   $voteList.append(votesHtml);
-}
+};
 
 function upError(error) {
    console.log(error);
-}
+};
 
 function downError () {
   console.log(error);
-}
+};
 
 function upVote () {
   console.log('you pressed up');
@@ -30,7 +33,7 @@ function upVote () {
     success: upSuccess,
     error: upError
   });
-}
+};
 
 function downVote () {
   console.log('you pressed down');
@@ -67,8 +70,9 @@ function clicker(){
 
 
 ///list of all of my listeners that will be active
-// function init() {
-$(document).ready(function() {
+// $(document).ready(function() {
+function init() {
+  console.log('init is active');
   $.ajax({
     method:'GET',
     url: '/api/protips',
@@ -81,15 +85,15 @@ $(document).ready(function() {
 
   var source = $('#voteTile').html();
   // console.log(source);
-  template = Handlebars.compile(source);
+  var template = Handlebars.compile(source);
 
   // console.log(template);
 
   // upSuccess();
-  $(".increment").click(clicker);
+  $(".increment").on('click', clicker);
 
-  $('.up').click(upVote);
+  $('.up').on('click', upVote);
 
-  $('.down').click(downVote);
-})
+  $('.down').on('click', downVote);
+};
 // };
