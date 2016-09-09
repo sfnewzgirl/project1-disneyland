@@ -9,10 +9,10 @@ var ProTipSchema = new Schema({
   tipResourceInfo: String
 });
 
-ProTipSchema.methods.upScore = function (callback) {
-  var ProTipSchema.tipScore = db.ProTip.tipScore +1;
-  return newProTipSchema.tipScore;
-}
+// ProTipSchema.methods.upScore = function (callback) {
+//   var ProTipSchema.tipScore = db.ProTip.tipScore +1;
+//   return newProTipSchema.tipScore;
+// }
 
 var ProTip = mongoose.model('ProTip', ProTipSchema);
 module.exports = ProTip;
