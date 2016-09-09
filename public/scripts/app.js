@@ -25,6 +25,10 @@ $(document).ready(function() {
 
   $('.protipList').on('click', '.btn-danger', deleteProTip);
 
+  $('body').on('click', '.comment-button', showCommentForm);
+
+  $('body').on('click', '.delete-button', deleteProTip);
+
 });
 
 //this is nod, it handles front-end validation
@@ -139,4 +143,12 @@ function downVote (event) {
     error: error
   });
   location.reload();
+}
+
+function showCommentForm (event) {
+  console.log('show comment form');
+}
+
+function deleteProTip (event) {
+  console.log('delete protip');
 }
