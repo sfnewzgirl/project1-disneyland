@@ -19,16 +19,16 @@
 
     </head>
   <body>
-
-    <div id='voteWrapper'>
+        
+    <div id='voteWrapper' class="protipList">
       <script id='voteTile' type="text/x-handlebars-template">
         {{#each proTipVote}}
           <h1>{{tipTitle}}</h1>
           <h1>{{tipDescription}}</h1>
           <h1>{{tipScore}}</h1>
-          <div class="btn-group-vertical">
-            <button type="button" class="btn btn-default">up</button>
-            <button type="button" class="btn btn-default">down</button>
+          <div class="btn-group-vote">
+            <button type="button" name="upButton" class="btn btn-default up-button">up</button>
+            <button type="button" name="downButton" class="btn btn-default down-button">down</button>
           </div>
         {{/each}}
       </script>
