@@ -23,9 +23,13 @@
     <div id='voteWrapper'>
       <script id='voteTile' type="text/x-handlebars-template">
         {{#each proTipVote}}
-        <h1>{{tipTitle}}</h1>
-        <h1>{{tipDescription}}</h1>
-        <h1>{{tipScore}}</h1>
+          <h1>{{tipTitle}}</h1>
+          <h1>{{tipDescription}}</h1>
+          <h1>{{tipScore}}</h1>
+          <div class="btn-group-vertical">
+            <button type="button" class="btn btn-default">up</button>
+            <button type="button" class="btn btn-default">down</button>
+          </div>
         {{/each}}
       </script>
     </div>
