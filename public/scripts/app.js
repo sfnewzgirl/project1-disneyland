@@ -9,8 +9,9 @@ console.log ('app.js is linked!');
 function upSuccess() {
   // var votesHtml = template({ proTipVote: tipScore });
   var votesHtml = template({ proTipVote: [{tipScore : 0, _id: 2}] });
-  $voteList.empty();
+  // $voteList.empty();
   $voteList.append(votesHtml);
+  console.log(tipScore);
 }
 
 function upError(error) {

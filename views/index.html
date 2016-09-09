@@ -8,7 +8,7 @@
 
       <!-- STYLESHEETS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-      <!-- <link rel="stylesheet" href="/styles/finalStyle.css"> -->
+      <link rel="stylesheet" href="/styles/finalStyle.css">
 
       <!-- VENDOR SCRIPTS -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -20,14 +20,14 @@
     </head>
   <body>
   <div id='voteWrapper'>
-    <script id='voteTile' type="text/x-handlebars-template">
-      {{#each proTipVote}}
+    <!-- <script id='voteTile' type="text/x-handlebars-template">
+      {{#each proTipVote}} -->
       <div class="vote circle">
         <div class="increment up" data-id={{_id}}></div>
         <div class="increment down" data-id={{_id}}></div>
         <div class="count" data-id={{_id}}>{{tipScore}}</div>
       </div>
-      {{/each}}
+      <!-- {{/each}} -->
     </script>
   </div>
 
