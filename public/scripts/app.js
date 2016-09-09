@@ -11,7 +11,6 @@ function upSuccess() {
   var votesHtml = template({ proTipVote: [{tipScore : 3, _id: 2}] });
   // $voteList.empty();
   $voteList.append(votesHtml);
-  console.log(tipScore);
 }
 
 function upError(error) {
@@ -70,15 +69,23 @@ function clicker(){
 ///list of all of my listeners that will be active
 // function init() {
 $(document).ready(function() {
+  $.ajax({
+    method:'GET',
+    url: '/api/protips',
+    dataType: 'json',
+    success: upSuccess,
+    error: upError
+  });
+
   $voteList = $('#voteWrapper');
 
   var source = $('#voteTile').html();
-  console.log(source);
+  // console.log(source);
   template = Handlebars.compile(source);
 
-  console.log(template);
+  // console.log(template);
 
-  upSuccess();
+  // upSuccess();
   $(".increment").click(clicker);
 
   $('.up').click(upVote);
