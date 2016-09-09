@@ -44,7 +44,8 @@ app.get('/api/protips/:id', function (req, res) {
 app.put('/api/protips/:id', function (req, res) {
   console.log('***********************HEY YOU PINGED ONE PROTIP***********************');
   db.ProTip.findOne({_id: req.params.id}, function(err, selectedProTip) {
-    selectedProTip.tipScore = req.body.tipScore + 1;
+    // selectedProTip.tipScore = selectedProTip.tipScore + 1;
+    selectedProTip.tipScore = selectedProTip.tipScore - 1;
     selectedProTip.save(function (err, updatedTipScore) {
       if (err) {return console.log(err);}
       res.json(updatedTipScore);

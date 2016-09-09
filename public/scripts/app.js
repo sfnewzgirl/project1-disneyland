@@ -25,13 +25,13 @@ function render () {
   var source = $('#voteTile').html();
   var template = Handlebars.compile(source);
   var votesHtml = template({ proTipVote: allProTips });
-  $voteList.empty();
+  // $voteList.empty();
   $voteList.append(votesHtml);
   }
 
 function onSuccess(json) {
   allProTips = json;
-  render();
+  render(allProTips);
 }
 
 function error(error) {
