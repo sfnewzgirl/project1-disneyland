@@ -41,17 +41,9 @@ app.get('/api/protips/:id', function (req, res) {
 });
 
 //UPDATE ONE PROTIP SCORE
-app.put('/api/protips/:id', function (req, res) {
+app.update('/api/protips/:id', function (req, res) {
   db.ProTip.findOne({_id: req.params.id}, function(err, selectedProTip) {
-    selectedProTip.tipTitle = req.body.tipTitle,
-    selectedProTip.tipDescription = req.body.tipDescription,
-    selectedProTip.tipScore = newTipScore();
-    // selectedProTip.tipResource = req.Boolean.tipResource,
-    // selectedProTip.tipResourceInfo = req.body.tipResourceInfo
-
-    //option for function here
-     var newTipScore = selectedProTip.tipScore + db.ProTip.tipScore;
-    // selectedProTip.tipScore = newTipScore
+    selectedProTip.tipScore = selectedProTip.tip + 1
     selectedProTrip.save(function (err, updatedTipScore) {
       if (err) {return console.log(err);}
       res.json(updatedTipScore);
@@ -61,10 +53,10 @@ app.put('/api/protips/:id', function (req, res) {
 });
 
 
-//VOTING FUNCTION
-function newTipScore() {
 
-}
+
+
+
 
 //JSON ENDPOINTS
 app.get('/api', function api_index(req, res) {
