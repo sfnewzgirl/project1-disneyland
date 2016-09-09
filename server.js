@@ -40,17 +40,31 @@ app.get('/api/protips/:id', function (req, res) {
   });
 });
 
-// //UPDATE ONE PROTIP SCORE
-// app.put('/api/protips/:id', function (req, res) {
-//   db.ProTip.findOne({_id: req.params.id}, function(err, selectedProTip) {
-//     var newTipScore = selectedProTip.tipScore + req.text.tipScore;
-//     selectedProTrip.save(function (err, newTipScore) {
-//       if (err) {return console.log(err);}
-//       res.json(newTipScore);
-//       console.log(newTipScore);
-//     });
-//   });
-// });
+//UPDATE ONE PROTIP SCORE
+app.put('/api/protips/:id', function (req, res) {
+  db.ProTip.findOne({_id: req.params.id}, function(err, selectedProTip) {
+    selectedProTip.tipTitle = req.body.tipTitle,
+    selectedProTip.tipDescription = req.body.tipDescription,
+    selectedProTip.tipScore = newTipScore();
+    // selectedProTip.tipResource = req.Boolean.tipResource,
+    // selectedProTip.tipResourceInfo = req.body.tipResourceInfo
+
+    //option for function here
+     var newTipScore = selectedProTip.tipScore + db.ProTip.tipScore;
+    // selectedProTip.tipScore = newTipScore
+    selectedProTrip.save(function (err, updatedTipScore) {
+      if (err) {return console.log(err);}
+      res.json(updatedTipScore);
+      console.log(updatedTipScore);
+    });
+  });
+});
+
+
+//VOTING FUNCTION
+function newTipScore() {
+
+}
 
 //JSON ENDPOINTS
 app.get('/api', function api_index(req, res) {

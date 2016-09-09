@@ -36,23 +36,25 @@ function error(error) {
    console.log(error);
 }
 
-function upVote () {
+function upVote (event) {
   console.log('you pressed up');
+  event.preventDefault();
   $.ajax({
    method: 'PUT',
    url: '/api/protips/'+$(this).attr('data-id'),
-   dataType: 'text',
+   dataType: 'json',
    success: onSuccess,
    error: error
  });
  }
 
-function downVote () {
+function downVote (event) {
   console.log('you pressed down');
+  event.preventDefault();
   $.ajax({
     method: 'PUT',
     url: '/api/protips/'+$(this).attr('data-id'),
-    dataType: 'text',
+    dataType: 'json',
     success: onSuccess,
     error: error
   });
