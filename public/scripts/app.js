@@ -8,7 +8,7 @@ console.log ('app.js is linked!');
 
 function upSuccess() {
   // var votesHtml = template({ proTipVote: tipScore });
-  var votesHtml = template({ proTipVote: [{tipScore : 0, _id: 2}] });
+  var votesHtml = template({ proTipVote: [{tipScore : 3, _id: 2}] });
   // $voteList.empty();
   $voteList.append(votesHtml);
   console.log(tipScore);
@@ -73,8 +73,12 @@ $(document).ready(function() {
   $voteList = $('#voteWrapper');
 
   var source = $('#voteTile').html();
+  console.log(source);
   template = Handlebars.compile(source);
 
+  console.log(template);
+
+  upSuccess();
   $(".increment").click(clicker);
 
   $('.up').click(upVote);

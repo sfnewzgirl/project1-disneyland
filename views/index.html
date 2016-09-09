@@ -20,14 +20,14 @@
     </head>
   <body>
   <div id='voteWrapper'>
-    <!-- <script id='voteTile' type="text/x-handlebars-template">
-      {{#each proTipVote}} -->
+    <script id='voteTile' type="text/x-handlebars-template">
+      {{#each proTipVote}}
       <div class="vote circle">
-        <div class="increment up" data-id={{_id}}></div>
-        <div class="increment down" data-id={{_id}}></div>
-        <div class="count" data-id={{_id}}>{{tipScore}}</div>
+        <div class="increment up" data-id="{{_id}}"></div>
+        <div class="increment down" data-id="{{_id}}"></div>
+        <div class="count" data-id="{{_id}}">{{tipScore}}</div>
       </div>
-      <!-- {{/each}} -->
+      {{/each}}
     </script>
   </div>
 
