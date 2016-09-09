@@ -8,7 +8,7 @@
 
       <!-- STYLESHEETS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-      <link rel="stylesheet" href="/styles/styles.css">
+      <!-- <link rel="stylesheet" href="../public/styles/styles.css"> -->
 
       <!-- VENDOR SCRIPTS -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -20,10 +20,19 @@
     </head>
   <body>
 
-
-
-
-
+    <div id='voteWrapper' class="protipList">
+      <script id='voteTile' type="text/x-handlebars-template">
+        {{#each proTipVote}}
+          <h1>{{tipTitle}}</h1>
+          <h1>{{tipDescription}}</h1>
+          <h1>{{tipScore}}</h1>
+          <div class="btn-group-vote">
+            <button type="button" name="upButton" class="btn btn-default up-button" data-id={{_id}}>up</button>
+            <button type="button" name="downButton" class="btn btn-default down-button" data-id={{_id}}>down</button>
+          </div>
+        {{/each}}
+      </script>
+    </div>
 
   </body>
 </html>
