@@ -19,9 +19,17 @@
 
     </head>
   <body>
-    <h2> Add a new ProTip! </h2>
-      <textarea class="form-control" rows="3"></textarea>
-    <hr>
+    <div class="row">
+      <div class=".col-md-12">
+        <h2> Add a new ProTip! </h2>
+          <label for="ProTipTitle">Title</label>
+          <input type="text" class="form-control" id="ProTipTitle" placeholder="What is your ProTip's title?">
+          <label for="ProTipDescription">What is your ProTip?</label>
+          <textarea class="form-control" id="ProTipDescription" rows="3"></textarea>
+          <button type="button" class="btn btn-primary">Submit ProTip</button>
+        <hr>
+      </div>
+    </div>
 
     <div id='voteWrapper' class="protipList">
       <script id='voteTile' type="text/x-handlebars-template">
