@@ -17,17 +17,6 @@ $(document).ready(function() {
 
   $('body').on('click', '.down-button', downVote);
 
-  //  $voteList.on('click', '.up-button', function(event) {
-  //    event.preventDefault();
-  //   // $.ajax({
-  //   //   method: 'PUT',
-  //   //   url: '/api/careers/:id',
-  //   //   dataType: 'text',
-  //   //   success: onSuccess,
-  //   //   error:  error
-  //   // });
-  //  });
-
 });
 
 function render () {
@@ -49,22 +38,22 @@ function error(error) {
 
 function upVote () {
   console.log('you pressed up');
-//   $.ajax({
-//     method: 'PUT',
-//     url: '/api/protips/:id',
-//     dataType: 'text',
-//     success: upSuccess,
-//     error: upError
-//   });
+  $.ajax({
+   method: 'PUT',
+   url: '/api/protips/'+$(this).attr('data-id'),
+   dataType: 'text',
+   success: onSuccess,
+   error: error
+ });
  }
 
 function downVote () {
   console.log('you pressed down');
-  // $.ajax({
-  //   method: 'PUT',
-  //   url: '/api/protips/:id',
-  //   dataType: 'text',
-  //   success: downSuccess,
-  //   error: downError
-  // });
+  $.ajax({
+    method: 'PUT',
+    url: '/api/protips/'+$(this).attr('data-id'),
+    dataType: 'text',
+    success: onSuccess,
+    error: error
+  });
 }
