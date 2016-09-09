@@ -45,10 +45,12 @@ function upVote (event) {
    method: 'PUT',
    url: '/api/protips/'+$(this).attr('data-id'),
    dataType: 'json',
+   data: {voteStatus: 'up'},
    success: onSuccess,
    error: error
  });
- }
+ location.reload();
+}
 
 function downVote (event) {
   console.log('you pressed down');
@@ -57,7 +59,9 @@ function downVote (event) {
     method: 'PUT',
     url: '/api/protips/'+$(this).attr('data-id'),
     dataType: 'json',
+    data: {voteStatus: 'down'},
     success: onSuccess,
     error: error
   });
+  location.reload();
 }
