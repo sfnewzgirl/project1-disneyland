@@ -1,6 +1,8 @@
 console.log ('app.js is linked!');
 var allProTips = [];
+var protips;
 var $voteList;
+var protipId;
 
 $(document).ready(function() {
   $voteList = $('#voteWrapper');
@@ -38,7 +40,7 @@ function error(error) {
 
 function upVote (event) {
   console.log('you pressed up');
-  event.preventDefault();
+  console.log($(this).attr('data-id'));
   $.ajax({
    method: 'PUT',
    url: '/api/protips/'+$(this).attr('data-id'),
@@ -50,7 +52,7 @@ function upVote (event) {
 
 function downVote (event) {
   console.log('you pressed down');
-  event.preventDefault();
+  console.log($(this).attr('data-id'));
   $.ajax({
     method: 'PUT',
     url: '/api/protips/'+$(this).attr('data-id'),

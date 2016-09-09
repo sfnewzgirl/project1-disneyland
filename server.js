@@ -41,10 +41,11 @@ app.get('/api/protips/:id', function (req, res) {
 });
 
 //UPDATE ONE PROTIP SCORE
-app.update('/api/protips/:id', function (req, res) {
+app.put('/api/protips/:id', function (req, res) {
+  console.log('***********************HEY YOU PINGED ONE PROTIP***********************');
   db.ProTip.findOne({_id: req.params.id}, function(err, selectedProTip) {
-    selectedProTip.tipScore = selectedProTip.tip + 1
-    selectedProTrip.save(function (err, updatedTipScore) {
+    selectedProTip.tipScore = req.body.tipScore + 1;
+    selectedProTip.save(function (err, updatedTipScore) {
       if (err) {return console.log(err);}
       res.json(updatedTipScore);
       console.log(updatedTipScore);
@@ -70,7 +71,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api", description: "Homepage"},
       {method: "GET", path: "/api/protips", description: "lists all protips"},
       {method: "GET", path: "/api/protips/:id", description: "lists one protip"},
-      {method: "PUT/PATCH", path: "/api/protips/:id", description: "update one protip score"},
+      {method: "PUT/PATCH", path: "/api/protips/:id/tipScore", description: "update one protip score"},
       {method: "POST", path: "/api/protips", description: "adds one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id", description: "updates one protip"},
       {method: "DELETE", path: "api/protips/:id", description: "deletes one protips"}
