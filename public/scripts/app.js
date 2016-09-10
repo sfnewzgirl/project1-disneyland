@@ -4,6 +4,7 @@ var protips;
 var $voteList;
 var protipId;
 
+
 $(document).ready(function() {
   $voteList = $('#voteWrapper');
 
@@ -24,18 +25,18 @@ $(document).ready(function() {
 
 function submitNewProTip (event) {
   event.preventDefault();
-  console.log('new protip serialized', $(this).serializeArray());
+  console.log('new protip serialized', $(this).serialize());
   $.ajax({
     method: 'POST',
     url: '/api/protips',
-    data: $(this).serializeArray(),
+    data: $(this).serialize(),
     success: newProTipSuccess,
     error: error
   });
   location.reload();
 }
 
-function newProTipSuccess () {
+function newProTipSuccess (json) {
   console.log('new ProTip created');
   allProTips = json;
   render([allProTips]);

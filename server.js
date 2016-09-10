@@ -44,7 +44,7 @@ app.post('/api/protips', function (req, res) {
         return console.log("save error: " + err);
       } else {
       console.log("saved a protip");
-      res.json(ProTip);
+      res.json(newProTip);
       }
     });
 });
