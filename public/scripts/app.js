@@ -19,7 +19,27 @@ $(document).ready(function() {
 
   $('body').on('click', '.down-button', downVote);
 
+  $('#newProTipForm').on('submit', submitNewProTip);
 });
+
+function submitNewProTip (event) {
+  event.preventDefault();
+  console.log('new protip serialized', $(this).serializeArray());
+  $.ajax({
+    method: 'POST',
+    url: '/api/protips',
+    data: $(this).serializeArray(),
+    success: newProTipSuccess,
+    error: error
+  });
+  location.reload();
+}
+
+function newProTipSuccess () {
+  console.log('new ProTip created');
+  allProTips = json;
+  render([allProTips]);
+}
 
 function render () {
   var source = $('#voteTile').html();
