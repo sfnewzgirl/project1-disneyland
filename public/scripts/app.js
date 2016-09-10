@@ -151,6 +151,12 @@ function showCommentForm (event) {
   // $('.protipList'+$(this).attr('data-id')).show();
 }
 
+$('.protipList').on('submit', '.submit-comment-button', function (event) {
+  console.log('comment submitted');
+
+}
+
+)
 function deleteProTip (event) {
   console.log('delete protip');
 }
