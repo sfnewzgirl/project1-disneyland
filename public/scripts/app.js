@@ -6,6 +6,7 @@ var protipId;
 
 
 $(document).ready(function() {
+
   $voteList = $('#voteWrapper');
 
   $.ajax({
@@ -21,7 +22,33 @@ $(document).ready(function() {
   $('body').on('click', '.down-button', downVote);
 
   $('#newProTipForm').on('submit', submitNewProTip);
+
+  $('.protipList').on('click', '.btn-danger', deleteProTip);
 });
+
+function deleteProTip (event) {
+  console.log('delete button clicked for: ' + $(this).attr('data-id'));
+  $.ajax({
+    method: 'DELETE',
+    url: 'api/protips/' + $(this).attr('data-id'),
+    success: deleteTip,
+    error: error,
+  });
+  location.reload();
+};
+
+function deleteTip (json) {
+  var proTip = json;
+  var proTipId = proTip._id;
+  console.log('delete show ', proTipId);
+  for(var index = 0; index < allProTips.length; index++){
+    if(allProTips[index]._id === proTipId){
+      allProTips.splice(index, 1);
+      break;
+    }
+  }
+  render();
+}
 
 function submitNewProTip (event) {
   event.preventDefault();
@@ -34,7 +61,7 @@ function submitNewProTip (event) {
     error: error
   });
   location.reload();
-}
+};
 
 function newProTipSuccess (json) {
   console.log('new ProTip created');

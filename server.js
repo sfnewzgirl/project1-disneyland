@@ -49,6 +49,15 @@ app.post('/api/protips', function (req, res) {
     });
 });
 
+//DELETE A PROTIP
+app.delete('/api/protips/:id', function (req, res) {
+  console.log('you want to delete ', req.params);
+  var proTipId = req.params.id;
+  db.ProTip.findOneAndRemove({ _id: proTipId }, function (err, deleteTip) {
+    res.json(deleteTip);
+  });
+});
+
 //LIST ONE PROTIP
 app.get('/api/protips/:id', function (req, res) {
   db.ProTip.findOne({_id: req.params.id}, function(err, data) {
