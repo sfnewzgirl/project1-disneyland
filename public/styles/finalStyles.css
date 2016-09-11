@@ -2,7 +2,8 @@
 /* try 50% */
 .proTipBg {
   background-color: rgba(255, 255, 255, 0.5);
-  max-width: 50%; }
+  max-width: 50%;
+  border: 3px solid #000000; }
 
 .circle .up {
   border-radius: 5rem 5rem 0 0;
