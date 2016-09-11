@@ -4,11 +4,11 @@ var mongoose = require('mongoose'),
 var ProTipSchema = new Schema({
   tipTitle: String,
   tipDescription: String,
-  tipScore: Number
-  // comments: [Comment.schema]
+  tipScore: Number,
+  // tipComment: [Comment.schema]
   // tipResource: Boolean,
   // tipResourceInfo: String
-  comments: [ String ]
+  comment: [ String ]
 });
 
 var ProTip = mongoose.model('ProTip', ProTipSchema);
