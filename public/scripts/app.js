@@ -27,9 +27,9 @@ $(document).ready(function() {
 
 });
 
+//this is nod, it handles front-end validation
 function nodInit () {
   console.log('nod active')
-  //this is Nod, it does front-end validation. On Monday, will figure out what portions need to be in the DOM on ready
     var myNod = nod();
 
     nod.classes.successClass = 'has-success';

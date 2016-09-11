@@ -21,33 +21,37 @@
 
     </head>
   <body>
-    <div class="row">
-      <div class=".col-md-12">
-        <h2> Add a new ProTip! </h2>
-          <form class="form-horizontal" id="newProTipForm" data-id="{{_id}}">
-            <label for="ProTipTitle">Title</label>
-              <input type="text" class="form-control" name="title" id="ProTipTitle" placeholder="What is your ProTip's title?">
-            <label for="ProTipDescription">What is your ProTip?</label>
-              <textarea class="form-control" name="tipDescription" id="ProTipDescription" rows="3"></textarea>
-            <button type="submit" class="btn btn-primary" id="SubmitProTip">Submit ProTip</button>
-          </form>
-        <hr>
+    <div class="container-fluid">
+      <div class="row">
+        <div class=".col-md-12">
+          <h2> Add a new ProTip! </h2>
+            <form class="form-horizontal" id="newProTipForm" data-id="{{_id}}">
+              <label for="ProTipTitle">Title</label>
+                <input type="text" class="form-control" name="title" id="ProTipTitle" placeholder="What is your ProTip's title?">
+              <label for="ProTipDescription">What is your ProTip?</label>
+                <textarea class="form-control" name="tipDescription" id="ProTipDescription" rows="3"></textarea>
+              <button type="submit" class="btn btn-primary" id="SubmitProTip">Submit ProTip</button>
+            </form>
+          <hr>
+        </div>
       </div>
-    </div>
+  </div>
 
-    <div id='voteWrapper' class="protipList">
-      <script id='voteTile' type="text/x-handlebars-template">
-        {{#each proTipVote}}
-          <h1>{{tipTitle}}</h1>
-          <h1>{{tipDescription}}</h1>
-          <h1>{{tipScore}}</h1>
-          <div class="btn-group-vote">
-            <button type="button" name="upButton" class="btn btn-default up-button" data-id="{{_id}}">up</button>
-            <button type="button" name="downButton" class="btn btn-default down-button" data-id="{{_id}}">down</button>
-          </div>
-          <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
-        {{/each}}
-      </script>
+    <div id='voteWrapper' class="protipList container-fluid">
+      <div class="row">
+        <script id='voteTile' type="text/x-handlebars-template">
+          {{#each proTipVote}}
+            <h1>{{tipTitle}}</h1>
+            <h1>{{tipDescription}}</h1>
+            <h1>{{tipScore}}</h1>
+            <div class="btn-group-vote">
+              <button type="button" name="upButton" class="btn btn-default up-button" data-id="{{_id}}">up</button>
+              <button type="button" name="downButton" class="btn btn-default down-button" data-id="{{_id}}">down</button>
+            </div>
+            <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
+          {{/each}}
+        </script>
+      </div>
     </div>
   </body>
   <script type="text/javascript">
