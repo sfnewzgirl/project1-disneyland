@@ -52,13 +52,13 @@ $black : #000000;
   top: 0;
   border-radius: $radius*.1;
   margin: $size*.25;
-  background: $bg;
+  background:  white; //$bg;
   width: $size*.5;
   font-size: $size*.75;
   font-weight: bold;
   line-height: $size*.5;
   text-align: center;
-  box-shadow: 0 0 0 $border-width $bg;
+  box-shadow: 0 0 0 $border-width white; //$bg;
   pointer-events: none;
 
   &.upvoted { color: $red; }
