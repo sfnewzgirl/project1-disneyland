@@ -24,7 +24,34 @@ $(document).ready(function() {
   $('#newProTipForm').on('submit', submitNewProTip);
 
   $('.protipList').on('click', '.btn-danger', deleteProTip);
+
 });
+
+function nodInit () {
+  console.log('nod active')
+  //this is Nod, it does front-end validation. On Monday, will figure out what portions need to be in the DOM on ready
+    var myNod = nod();
+
+    nod.classes.successClass = 'has-success';
+    nod.classes.errorClass = 'has-error';
+
+    myNod.configure({
+        jQuery: $,
+        submit: '#SubmitProTip',
+        disableSubmit: true,
+    });
+
+    myNod.add([{
+        selector: '#ProTipTitle',
+        validate: 'presence',
+        errorMessage: 'Please enter a title for your ProTip'
+    }, {
+        selector: '#ProTipDescription',
+        validate: 'presence',
+        errorMessage: 'Please describe your ProTip'
+    }]);
+}
+
 
 function deleteProTip (event) {
   console.log('delete button clicked for: ' + $(this).attr('data-id'));
