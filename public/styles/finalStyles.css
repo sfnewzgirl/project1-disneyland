@@ -1,9 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic);
 /* try 50% */
 .circle .up {
-  border-radius: 10rem 10rem 0 0; }
+  border-radius: 5rem 5rem 0 0;
+  border: 2px solid #f9d70b; }
 .circle .down {
-  border-radius: 0 0 10rem 10rem; }
+  border-radius: 0 0 5rem 5rem;
+  border: 2px solid #f9d70b; }
 .circle .count {
   border-radius: 50%; }
 
@@ -12,8 +14,8 @@
   flex-direction: column;
   font-family: "Noto Sans";
   position: relative;
-  width: 10rem;
-  height: 10rem;
+  width: 5rem;
+  height: 5rem;
   margin: 1rem; }
 
 .increment {
@@ -23,11 +25,11 @@
   transition: 0.3s;
   cursor: pointer; }
   .increment.up {
-    background: #4BC35F;
+    background: #f20505;
     height: 50%;
     margin-bottom: 0.25rem; }
   .increment.down {
-    background: #C15044;
+    background: #000000;
     height: 50%; }
   .increment:hover {
     opacity: 1; }
@@ -36,19 +38,19 @@
   position: absolute;
   top: 0;
   border-radius: 0.1rem;
-  margin: 2.5rem;
+  margin: 1.25rem;
   background: #C5EFF9;
-  width: 5rem;
-  font-size: 2.5rem;
+  width: 2.5rem;
+  font-size: 3.75rem;
   font-weight: bold;
-  line-height: 5rem;
+  line-height: 2.5rem;
   text-align: center;
   box-shadow: 0 0 0 0.5rem #C5EFF9;
   pointer-events: none; }
   .count.upvoted {
-    color: #4BC35F; }
+    color: #f20505; }
   .count.downvoted {
-    color: #C15044; }
+    color: #000000; }
 
 .bump {
   animation: bump 200ms; }
