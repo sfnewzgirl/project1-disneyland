@@ -24,7 +24,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class=".col-md-12">
+        <div class=".col-md-6">
           <h2> Add a new ProTip! </h2>
             <form class="form-horizontal" id="newProTipForm" data-id="{{_id}}">
               <label for="ProTipTitle">Title</label>
@@ -42,19 +42,21 @@
       <div class="row">
         <script id='voteTile' type="text/x-handlebars-template">
             {{#each proTipVote}}
-            <div class=".col-md-11 proTipBg">
-            <h1>{{tipTitle}}</h1>
-            <h1>{{tipDescription}}</h1>
-            <!-- <h1>{{tipScore}}</h1> -->
-          </div>
-          <div class="btn-group-vote .col-md-1">
-            <div class="vote circle">
-              <div class="increment up upbutton" data-id={{_id}}></div>
-              <div class="increment down downbutton" data-id={{_id}}></div>
-              <div class="count">{{tipScore}}</div>
+            <div class = "proTipTile">
+                <div class="col-md-8 col-md-push-1 proTipBg">
+                <h1>{{tipTitle}}</h1>
+                <h1>{{tipDescription}}</h1>
+                <!-- <h1>{{tipScore}}</h1> -->
+                <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
+              </div>
+              <div class="col-md-1 col-md-pull-8 btn-group-vote">
+                <div class="vote circle">
+                  <div class="increment up upbutton" data-id={{_id}}></div>
+                  <div class="increment down downbutton" data-id={{_id}}></div>
+                  <div class="count">{{tipScore}}</div>
+                </div>
+              </div>
             </div>
-          </div>
-            <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
             {{/each}}
         </script>
       </div>

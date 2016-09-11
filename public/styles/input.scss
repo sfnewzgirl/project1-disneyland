@@ -10,15 +10,22 @@ $red : #f20505;
 $black : #000000;
 $mmYellow : #f9d70b;
 
+.proTipTile {
+  padding-bottom: 20em;
+  // max-height: 200px;
+}
 
 .proTipBg {
   background-color: rgba(255, 255, 255, .5);
-  max-width: 50%;
   border: 3px solid $black;
 }
 
+.btn-group-vote {
+  @extend .proTipBg;
+}
+
 .circle {
-  .up { border-radius: $size $size 0 0; border: 2px solid $mmYellow;}
+  .up { border-radius: $size $size 0 0; border: 2px solid $mmYellow; }
   .down { border-radius: 0 0 $size $size; border: 2px solid $mmYellow; }
   .count { border-radius: 50%; }
 }

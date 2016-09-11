@@ -1,8 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic);
 /* try 50% */
-.proTipBg {
+.proTipTile {
+  padding-bottom: 20em; }
+
+.proTipBg, .btn-group-vote {
   background-color: rgba(255, 255, 255, 0.5);
-  max-width: 50%;
   border: 3px solid #000000; }
 
 .circle .up {
