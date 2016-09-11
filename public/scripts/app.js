@@ -17,9 +17,9 @@ $(document).ready(function() {
     error: error
   });
 
-  $('body').on('click', '.up-button', upVote);
+  $('body').on('click', '.upbutton', upVote);
 
-  $('body').on('click', '.down-button', downVote);
+  $('body').on('click', '.downbutton', downVote);
 
   $('#newProTipForm').on('submit', submitNewProTip);
 
