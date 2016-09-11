@@ -56,6 +56,12 @@
           </div>
           <button type="button" name="commentButton" class="btn btn-default comment-button" data-id="{{_id}}">comment</button>
           <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
+          <h1 class="inline-header">comments</h1>
+          <p class="comment-list">
+            {{#each comments}}
+                {{commentBody}}
+            {{/each}}
+          </p>
         <form class="form-create-comment" id="commentForm{{_id}}" data-id={{_id}}>
           <div class="form-group">
             <label for="comment-text-area">Comment on ProTip</label>

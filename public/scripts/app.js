@@ -27,6 +27,8 @@ $(document).ready(function() {
 
   $('body').on('click', '.comment-button', showCommentForm);
 
+  $('body').on('click', '.form-create-comment', submitCommentForm);
+
   // $('body').on('click', '.delete-button', deleteProTip);
 
 });
@@ -150,12 +152,26 @@ function showCommentForm (event) {
   $('#commentForm'+$(this).attr('data-id')).show();
 }
 
-$('.protipList').on('submit', '.submit-comment-button', function (event) {
+function submitCommentForm (event) {
+  event.preventDefault();
   console.log('comment submitted');
-
+  $.ajax({
+    method: 'POST',
+    url: '/api/protips/'+$(this).attr('data-id'),
+    dataType: 'json',
+    data: $(this).serialize(),
+    success: createCommentSuccess,
+    error: error
+  });
 }
 
-)
+function createCommentSuccess (json) {
+  $('.form-create-comment input').val('');
+  $('#commentForm'+$(this).attr('data-id')).hide();
+  allProTips.push(json);
+  render();
+};
+
 // function deleteProTip (event) {
 //   console.log('delete protip');
 // }
