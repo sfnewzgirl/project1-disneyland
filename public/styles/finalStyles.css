@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic);
 /* try 50% */
+.proTipBg {
+  background-color: rgba(255, 255, 255, 0.5);
+  max-width: 50%; }
+
 .circle .up {
   border-radius: 5rem 5rem 0 0;
   border: 2px solid #f9d70b; }

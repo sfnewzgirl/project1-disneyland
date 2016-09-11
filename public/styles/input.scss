@@ -9,6 +9,12 @@ $bg : #C5EFF9;
 $red : #f20505;
 $black : #000000;
 
+
+.proTipBg {
+  background-color: rgba(255, 255, 255, .5);
+  max-width: 50%;
+}
+
 .circle {
   .up { border-radius: $size $size 0 0; border: 2px solid #f9d70b;}
   .down { border-radius: 0 0 $size $size; border: 2px solid #f9d70b; }
@@ -83,5 +89,4 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    $body-bg: transparent;
 }
