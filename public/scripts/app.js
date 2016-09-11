@@ -147,8 +147,7 @@ function downVote (event) {
 
 function showCommentForm (event) {
   console.log('show comment form');
-  // event.preventDefault();
-  // $('.protipList'+$(this).attr('data-id')).show();
+  $('#commentForm'+$(this).attr('data-id')).show();
 }
 
 $('.protipList').on('submit', '.submit-comment-button', function (event) {
