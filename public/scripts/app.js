@@ -27,7 +27,7 @@ $(document).ready(function() {
 
   $('body').on('click', '.comment-button', showCommentForm);
 
-  $('body').on('click', '.delete-button', deleteProTip);
+  // $('body').on('click', '.delete-button', deleteProTip);
 
 });
 
@@ -157,6 +157,6 @@ $('.protipList').on('submit', '.submit-comment-button', function (event) {
 }
 
 )
-function deleteProTip (event) {
-  console.log('delete protip');
-}
+// function deleteProTip (event) {
+//   console.log('delete protip');
+// }

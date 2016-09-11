@@ -5,3 +5,7 @@
 .nod-error {
     background: #fcc;
 }
+
+.form-create-comment {
+  display: none;
+}
