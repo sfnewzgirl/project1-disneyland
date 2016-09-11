@@ -4,9 +4,10 @@ var mongoose = require('mongoose'),
 var ProTipSchema = new Schema({
   tipTitle: String,
   tipDescription: String,
-  tipScore: Number,
-  tipResource: Boolean,
-  tipResourceInfo: String
+  tipScore: Number
+  // comments: [Comment.schema]
+  // tipResource: Boolean,
+  // tipResourceInfo: String
 });
 
 // ProTipSchema.methods.upScore = function (callback) {

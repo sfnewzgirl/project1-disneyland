@@ -4,7 +4,9 @@ var protips;
 var $voteList;
 var protipId;
 
+
 $(document).ready(function() {
+
   $voteList = $('#voteWrapper');
 
   $.ajax({
@@ -15,11 +17,84 @@ $(document).ready(function() {
     error: error
   });
 
-  $('body').on('click', '.up-button', upVote);
+  $('body').on('click', '.upbutton', upVote);
 
-  $('body').on('click', '.down-button', downVote);
+  $('body').on('click', '.downbutton', downVote);
+
+  $('#newProTipForm').on('submit', submitNewProTip);
+
+  $('.protipList').on('click', '.btn-danger', deleteProTip);
 
 });
+
+//this is nod, it handles front-end validation
+function nodInit () {
+  console.log('nod active')
+    var myNod = nod();
+
+    nod.classes.successClass = 'has-success';
+    nod.classes.errorClass = 'has-error';
+
+    myNod.configure({
+        jQuery: $,
+        submit: '#SubmitProTip',
+        disableSubmit: true,
+    });
+
+    myNod.add([{
+        selector: '#ProTipTitle',
+        validate: 'presence',
+        errorMessage: 'Please enter a title for your ProTip'
+    }, {
+        selector: '#ProTipDescription',
+        validate: 'presence',
+        errorMessage: 'Please describe your ProTip'
+    }]);
+}
+
+
+function deleteProTip (event) {
+  console.log('delete button clicked for: ' + $(this).attr('data-id'));
+  $.ajax({
+    method: 'DELETE',
+    url: 'api/protips/' + $(this).attr('data-id'),
+    success: deleteTip,
+    error: error,
+  });
+  location.reload();
+};
+
+function deleteTip (json) {
+  var proTip = json;
+  var proTipId = proTip._id;
+  console.log('delete show ', proTipId);
+  for(var index = 0; index < allProTips.length; index++){
+    if(allProTips[index]._id === proTipId){
+      allProTips.splice(index, 1);
+      break;
+    }
+  }
+  render();
+}
+
+function submitNewProTip (event) {
+  event.preventDefault();
+  console.log('new protip serialized', $(this).serialize());
+  $.ajax({
+    method: 'POST',
+    url: '/api/protips',
+    data: $(this).serialize(),
+    success: newProTipSuccess,
+    error: error
+  });
+  location.reload();
+};
+
+function newProTipSuccess (json) {
+  console.log('new ProTip created');
+  allProTips = json;
+  render([allProTips]);
+}
 
 function render () {
   var source = $('#voteTile').html();

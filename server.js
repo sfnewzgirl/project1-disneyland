@@ -32,6 +32,32 @@ app.get('/api/protips', function (req, res) {
   });
 });
 
+//ADD A PROTIP
+app.post('/api/protips', function (req, res) {
+  var newProTip = new db.ProTip({
+    tipTitle: req.body.title,
+    tipDescription: req.body.tipDescription,
+    tipScore: 0
+  });
+    newProTip.save(function(err, show){
+      if (err) {
+        return console.log("save error: " + err);
+      } else {
+      console.log("saved a protip");
+      res.json(newProTip);
+      }
+    });
+});
+
+//DELETE A PROTIP
+app.delete('/api/protips/:id', function (req, res) {
+  console.log('you want to delete ', req.params);
+  var proTipId = req.params.id;
+  db.ProTip.findOneAndRemove({ _id: proTipId }, function (err, deleteTip) {
+    res.json(deleteTip);
+  });
+});
+
 //LIST ONE PROTIP
 app.get('/api/protips/:id', function (req, res) {
   db.ProTip.findOne({_id: req.params.id}, function(err, data) {
@@ -79,7 +105,7 @@ app.get('/api', function api_index(req, res) {
       {method: "PUT/PATCH", path: "/api/protips/:id/tipScore", description: "update one protip score"},
       {method: "POST", path: "/api/protips", description: "adds one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id", description: "updates one protip"},
-      {method: "DELETE", path: "api/protips/:id", description: "deletes one protips"}
+      {method: "DELETE", path: "api/protips/:id", description: "deletes one protips"},
     ]
   })
 });
