@@ -79,5 +79,9 @@ body {
   // display: flex; this moved protip form to the left side
   justify-content: center;
   align-items: center;
-  background: $bg;
+  background: url(http://i.imgur.com/BBquZc9.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    $body-bg: transparent;
 }
