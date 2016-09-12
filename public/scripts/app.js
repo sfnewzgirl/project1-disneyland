@@ -27,9 +27,7 @@ $(document).ready(function() {
 
   $('body').on('click', '.comment-button', showCommentForm);
 
-  $('body').on('click', '.form-create-comment', submitCommentForm);
-
-  // $('body').on('click', '.delete-button', deleteProTip);
+  $('body').on('submit', '.form-create-comment', submitCommentForm);
 
 });
 
@@ -57,7 +55,6 @@ function nodInit () {
         errorMessage: 'Please describe your ProTip'
     }]);
 }
-
 
 function deleteProTip (event) {
   console.log('delete button clicked for: ' + $(this).attr('data-id'));
@@ -149,29 +146,27 @@ function downVote (event) {
 
 function showCommentForm (event) {
   console.log('show comment form');
+  var currentProTipId = $(this).closest('.protip').data('protip-id');
+  $('#commentForm').data('protip-id', currentProTipId);
+  console.log(currentProTipId);
   $('#commentForm'+$(this).attr('data-id')).show();
 }
 
 function submitCommentForm (event) {
   event.preventDefault();
   console.log('comment submitted');
-  $.ajax({
-    method: 'POST',
-    url: '/api/protips/'+$(this).attr('data-id'),
-    dataType: 'json',
-    data: $(this).serialize(),
-    success: createCommentSuccess,
-    error: error
-  });
+  var $commentForm = $('#commentForm');
+  var $commentField = $commentForm.find('#comment-body');
+  var $commentToPost = {
+      commentBody: $commentField.val()
+   };
+  var protipId = $commentForm.data('protipId');
+  console.log();
 }
 
 function createCommentSuccess (json) {
   $('.form-create-comment input').val('');
   $('#commentForm'+$(this).attr('data-id')).hide();
-  allProTips.push(json);
-  render();
+  allProTips = json;
+  render(allProTips);
 };
-
-// function deleteProTip (event) {
-//   console.log('delete protip');
-// }
