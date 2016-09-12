@@ -157,11 +157,26 @@ function submitCommentForm (event) {
   console.log('comment submitted');
   var $commentForm = $('#commentForm');
   var $commentField = $commentForm.find('#comment-body');
-  var $commentToPost = {
+  var commentToPost = {
       commentBody: $commentField.val()
    };
   var protipId = $commentForm.data('protipId');
-  console.log();
+  var commentUrl = '/api/protips/' + protipId +'/comments';
+
+  //post comment to server
+  var commentUrl = '/api/protips/' + protipId + '/comments';
+    $.post(commentUrl, commentToPost, function(data) {
+      console.lot(commentToPost);
+      //clears form and hids form
+      $commentField.val('');
+      $('#commentForm'+$(this).attr('data-id')).hide();
+
+      //update the protip
+      $.get('/api/protips/' + protipId, function(data) {
+        $('[data-protip-id=' + protipId + ']').remove();
+        render(data);
+      })
+    })
 }
 
 function createCommentSuccess (json) {
