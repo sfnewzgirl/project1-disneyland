@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:900);
 @font-face {
   font-family: Disney;
   src: local("waltographRegular"),
@@ -16,14 +17,25 @@ $red : #f20505;
 $black : #000000;
 $mmYellow : #f9d70b;
 $disneyFont : "Disney", serif;
+$proTipFont : "Roboto", serif;
 
+h2 {
+  padding-left: 2em;
+}
 
 li {
   list-style: none;
 }
 
+.proTipText {
+  font-family: $proTipFont;
+  font-size: 3.25em;
+  color: #ffffff;
+  text-shadow: 3px 3px #575452;
+}
+
 .commentContainer {
-  
+
 }
 
 .proTipTile {
@@ -102,6 +114,11 @@ li {
 
 #disney {
   font-family: $disneyFont;
+}
+
+#newProTipForm {
+  max-width: 450px;
+  padding-left: 1em;
 }
 
 @keyframes bump {
