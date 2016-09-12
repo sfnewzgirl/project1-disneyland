@@ -17,17 +17,17 @@ var proTipList = [
   }
 ];
 
-var commentList = [
-  {
-    commentBody: "I love this ProTip!"
-  }
-  {
-    commentBody: "This isn't helpful at all."
-  }
-  {
-    commentBody: "Eh, everybody already knows this."
-  }
-]
+// var commentList = [
+//   {
+//     commentBody: "I love this ProTip!"
+//   },
+//   {
+//     commentBody: "This isn't helpful at all."
+//   },
+//   {
+//     commentBody: "Eh, everybody already knows this."
+//   }
+// ]
 
 // proTipList.forEach(function(protip) {
 //   protip.tipComment = commentList;

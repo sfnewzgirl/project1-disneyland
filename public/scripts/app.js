@@ -2,9 +2,13 @@ console.log ('app.js is linked!');
 var allProTips = [];
 var protips;
 var $voteList;
+var source;
+var template;
 // var protipId;
 
 $(document).ready(function() {
+  source = $('#voteTile').html();
+  template = Handlebars.compile(source);
 
   $voteList = $('#voteWrapper');
 
@@ -63,7 +67,7 @@ function deleteProTip (event) {
     success: deleteTipSuccess,
     error: error,
   });
-  location.reload();
+  // location.reload();
 };
 
 function deleteTipSuccess (json) {
@@ -89,26 +93,24 @@ function submitNewProTip (event) {
     success: newProTipSuccess,
     error: error
   });
-  location.reload();
+  // location.reload();
 };
 
 function newProTipSuccess (json) {
-  console.log('new ProTip created');
-  allProTips = json;
-  render([allProTips]);
+  console.log('new ProTip created', json);
+  allProTips.push(json);
+  render();
 }
 
 function render () {
-  var source = $('#voteTile').html();
-  var template = Handlebars.compile(source);
   var votesHtml = template({ proTipVote: allProTips });
-  // $voteList.empty();
+  $voteList.empty();
   $voteList.append(votesHtml);
-  }
+}
 
 function onSuccess(json) {
   allProTips = json;
-  render(allProTips);
+  render(json);
 }
 
 function error(error) {
@@ -126,7 +128,7 @@ function upVote (event) {
    success: onSuccess,
    error: error
  });
- location.reload();
+ // location.reload();
 }
 
 function downVote (event) {
@@ -140,7 +142,7 @@ function downVote (event) {
     success: onSuccess,
     error: error
   });
-  location.reload();
+  // location.reload();
 }
 
 function showCommentForm (event) {
@@ -179,5 +181,5 @@ function submitCommentForm (event) {
       render(json);
     });
   });
-  location.reload();
+  // location.reload();
 }
