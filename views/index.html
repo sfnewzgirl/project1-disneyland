@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>Disneyland App</title>
+      <title>Disneyland ProTips</title>
 
       <!-- STYLESHEETS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -58,8 +58,24 @@
                 </div>
               </div>
             </div>
+          </div>
+          <button type="button" name="commentButton" class="btn btn-default comment-button" data-id="{{_id}}">comment</button>
+          <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
+          <h1 class="inline-header">comments</h1>
+          <p class="comment-list">
+            {{#each comments}}
+                {{commentBody}}
             {{/each}}
-        </script>
+          </p>
+        <form class="form-create-comment" id="commentForm{{_id}}" data-id={{_id}}>
+          <div class="form-group">
+            <label for="comment-text-area">Comment on ProTip</label>
+            <textarea class="form-control" id="comment-body" name="commentBody" rows="4"></textarea>
+            <button type="submit" name="submitCommentButton" class="btn btn-default submit-comment-button" data-id="{{_id}}">submit</button>
+          </div>
+        </form>
+        {{/each}}
+      </script>
       </div>
     </div>
   </body>
