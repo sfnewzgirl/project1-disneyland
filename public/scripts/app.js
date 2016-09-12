@@ -67,7 +67,6 @@ function deleteProTip (event) {
     success: deleteTipSuccess,
     error: error,
   });
-  // location.reload();
 };
 
 function deleteTipSuccess (json) {
@@ -93,7 +92,6 @@ function submitNewProTip (event) {
     success: newProTipSuccess,
     error: error
   });
-  // location.reload();
 };
 
 function newProTipSuccess (json) {
@@ -110,7 +108,7 @@ function render () {
 
 function onSuccess(json) {
   allProTips = json;
-  render(json);
+  render();
 }
 
 function error(error) {
@@ -125,10 +123,9 @@ function upVote (event) {
    url: '/api/protips/'+$(this).attr('data-id'),
    dataType: 'json',
    data: {voteStatus: 'up'},
-   success: onSuccess,
+   success: onSuccessVote,
    error: error
  });
- // location.reload();
 }
 
 function downVote (event) {
@@ -139,10 +136,22 @@ function downVote (event) {
     url: '/api/protips/'+$(this).attr('data-id'),
     dataType: 'json',
     data: {voteStatus: 'down'},
-    success: onSuccess,
+    success: onSuccessVote,
     error: error
   });
-  // location.reload();
+}
+
+function onSuccessVote (json){
+  console.log(json);
+  var proTip = json;
+  var proTipId = proTip._id;
+  for(var index = 0; index < allProTips.length; index++){
+    if(allProTips[index]._id === proTipId){
+      allProTips.splice(index, 1, json);
+      break;
+    }
+  }
+  render();
 }
 
 function showCommentForm (event) {
@@ -174,12 +183,16 @@ function submitCommentForm (event) {
 
     //update the protip
     $.get('/api/protips/' + protipId, function(json) {
-      console.log('/api/protips/' + protipId);
-      // $('[data-protip-id=' + protipId + ']').remove();
-      allProTips = json;
       console.log(json);
-      render(json);
+      var proTip = json;
+      var proTipId = proTip._id;
+      for(var index = 0; index < allProTips.length; index++){
+        if(allProTips[index]._id === proTipId){
+          allProTips.splice(index, 1, json);
+          break;
+        }
+      }
+      render();
     });
   });
-  // location.reload();
 }
