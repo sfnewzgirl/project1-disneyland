@@ -110,6 +110,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/protips/:id", description: "lists one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id/tipScore", description: "update one protip score"},
       {method: "POST", path: "/api/protips/:protipId/comments", description: "adds one comment"},
+      // {method: "GET", path: "/api/protips/:protipId/comments", description: "gets all comments for one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id", description: "updates one protip"},
       {method: "DELETE", path: "api/protips/:id", description: "deletes one protips"},
     ]
