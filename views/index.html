@@ -49,6 +49,7 @@
                 <h1>{{tipDescription}}</h1>
                 <!-- <h1>{{tipScore}}</h1> -->
                 <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
+                <button type="button" name="commentButton" class="btn btn-default comment-button" data-id="{{_id}}">Add a comment</button>
               </div>
               <div class="col-md-1 col-md-pull-8 btn-group-vote">
                 <div class="vote circle">
@@ -59,8 +60,8 @@
               </div>
             </div>
           </div>
-          <button type="button" name="commentButton" class="btn btn-default comment-button" data-id="{{_id}}">comment</button>
-          <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
+          <!-- <button type="button" name="commentButton" class="btn btn-default comment-button" data-id="{{_id}}">comment</button> Misha's comment -->
+          <!-- <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button> Misha's delete-->
           <h1 class="inline-header">comments</h1>
           <p class="comment-list">
             {{#each comments}}
