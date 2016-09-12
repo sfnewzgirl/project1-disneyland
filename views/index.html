@@ -41,7 +41,7 @@
       <div class="row">
         <script id='voteTile' type="text/x-handlebars-template">
             {{#each proTipVote}}
-            <div class=".col-md-11 proTipBg" data-protip-id="{{_id}}">
+            <div class=".col-md-11 proTipBg" data-id="{{_id}}">
             <h1>{{tipTitle}}</h1>
             <h1>{{tipDescription}}</h1>
             <!-- <h1>{{tipScore}}</h1> -->
@@ -53,23 +53,23 @@
                 <div class="count">{{tipScore}}</div>
             </div>
           </div>
-          <button type="button" name="commentButton" class="btn btn-default comment-button" data-id="{{_id}}">comment</button>
+          <button type="button" name="commentButton" class="btn btn-default comment-button" data-protip-id={{_id}}>comment</button>
           <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
-        <form class="form-create-comment" id="commentForm{{_id}}" data-id={{_id}}>
-          <div class="form-group">
-            <label for="comment-text-area">Comment on a ProTip</label>
-            <textarea class="form-control" id="comment-body" name="commentBody" rows="4" placeholder="Have anything to add?"></textarea>
-            <button type="submit" name="submitCommentButton" class="btn btn-default submit-comment-button" data-id="{{_id}}">submit</button>
-          </div>
-        </form>
-        <h1 class="inline-header">comments</h1>
-        <p class="comment-list">
-          {{#each comments}}
-            {{commentBody}}
+          <form class="form-create-comment" id="commentForm{{_id}}" data-protip-id={{_id}}>
+            <div class="form-group">
+              <label for="comment-text-area">Comment on a ProTip</label>
+              <textarea class="form-control comment-body" rows="4" placeholder="Have anything to add?"></textarea>
+              <button type="submit" name="submitCommentButton" class="btn btn-default submit-comment-button" data-protip-id={{_id}}>submit</button>
+            </div>
+          </form>
+          <h1 class="inline-header">comments</h1>
+          <p class="comment-list">
+            {{#each comments}}
+              {{commentBody}}
+            {{/each}}
+          </p>
           {{/each}}
-        </p>
-      {{/each}}
-      </script>
+        </script>
       </div>
     </div>
   </body>

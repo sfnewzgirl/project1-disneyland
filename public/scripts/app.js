@@ -2,8 +2,7 @@ console.log ('app.js is linked!');
 var allProTips = [];
 var protips;
 var $voteList;
-var protipId;
-
+// var protipId;
 
 $(document).ready(function() {
 
@@ -146,42 +145,42 @@ function downVote (event) {
 
 function showCommentForm (event) {
   console.log('show comment form');
-  var currentProTipId = $(this).closest('.protip').data('protip-id');
-  $('#commentForm').data('protip-id', currentProTipId);
+  var currentProTipId = $(this).data('protip-id');
+  var $commentForm = $('#commentForm' + currentProTipId);
   console.log(currentProTipId);
-  $('#commentForm'+$(this).attr('data-id')).show();
+  $commentForm.show();
 }
 
 function submitCommentForm (event) {
   event.preventDefault();
   console.log('comment submitted');
-  var $commentForm = $('#commentForm');
-  var $commentField = $commentForm.find('#comment-body');
+  var $commentForm = $(this).closest("form");
+  var $commentField = $commentForm.find('.comment-body');
   var commentToPost = {
       commentBody: $commentField.val()
    };
-  var protipId = $commentForm.data('protipId');
+  var protipId = $(this).data('protip-id');
+  console.log(protipId);
+  console.log(commentToPost);
   var commentUrl = '/api/protips/' + protipId +'/comments';
 
-  //post comment to server
-  var commentUrl = '/api/protips/' + protipId + '/comments';
-    $.post(commentUrl, commentToPost, function(data) {
-      console.lot(commentToPost);
+  $.post(commentUrl, commentToPost, function(data) {
+    console.log(commentToPost);
       //clears form and hids form
-      $commentField.val('');
-      $('#commentForm'+$(this).attr('data-id')).hide();
+    $commentField.val('');
+    $commentForm.hide();
 
-      //update the protip
-      $.get('/api/protips/' + protipId, function(data) {
-        $('[data-protip-id=' + protipId + ']').remove();
-        render(data);
-      })
-    })
+    //update the protip
+    $.get('/api/protips/' + protipId, function(data) {
+      console.log("post-get", protipId);
+      // $('[data-protip-id=' + protipId + ']').remove();
+      render(data);
+    });
+  });
 }
-
-function createCommentSuccess (json) {
-  $('.form-create-comment input').val('');
-  $('#commentForm'+$(this).attr('data-id')).hide();
-  allProTips = json;
-  render(allProTips);
-};
+// function createCommentSuccess (json) {
+//   $('.form-create-comment input').val('');
+//   $('#commentForm'+$(this).attr('data-id')).hide();
+//   allProTips = json;
+//   render(allProTips);
+// };

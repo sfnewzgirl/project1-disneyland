@@ -85,16 +85,16 @@ app.put('/api/protips/:id', function (req, res) {
 });
 
 //ADD A COMMENT
-app.post('/api/protips/:protipId/comments', function (req, res) {
-//   db.ProTip.findOne({_id: req.params.id}, function (err, selectedProTip) {
-//     selectedProTip.comments = ,
-//     selectedProTip.save(function (err, savedComment) {
-//       if (err {return console.log("save error: "+ err));}
-//       res.json(savedComment);
-//     });
-//   });
+app.post('/api/protips/:proTipId/comments', function (req, res) {
+   db.ProTip.findById(req.params.proTipId, function (err, selectedProTip) {
+     var newComment = new db.Comment({commentBody: req.body.commentBody});
+     selectedProTip.tipComment.push(newComment);
+     selectedProTip.save(function(err, savedComment) {
+       console.log('newComment');
+       res.json(newComment);
+     });
+   });
 });
-//need to find the id of the comment and join to id of the protip
 
 //JSON ENDPOINTS
 app.get('/api', function api_index(req, res) {
