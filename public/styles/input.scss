@@ -1,4 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic);
+@font-face {
+  font-family: Disney;
+  src: local("Waltograph Regular"),
+  url(public/styles/fonts/waltograph.regular.ttf)
+}
+
 
 $size : 5rem;
 $border-width : .5rem;
@@ -9,6 +15,7 @@ $bg : #C5EFF9;
 $red : #f20505;
 $black : #000000;
 $mmYellow : #f9d70b;
+$disneyFont : "Waltograph Regular", serif;
 
 .proTipTile {
   padding-bottom: 20em;
