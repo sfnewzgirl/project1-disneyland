@@ -95,6 +95,7 @@ function submitNewProTip (event) {
 };
 
 function newProTipSuccess (json) {
+  // $('.newProTipForm input').val('');
   console.log('new ProTip created', json);
   allProTips.push(json);
   render();
