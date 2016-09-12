@@ -3,11 +3,11 @@
   font-family: Disney;
   src: local("waltographRegular"), url("/styles/waltographRegular.ttf"); }
 /* try 50% */
-.totalWrapper {
-  display: block; }
+li {
+  list-style: none; }
 
 .proTipTile {
-  padding-bottom: 20em; }
+  padding-bottom: 16em; }
 
 .proTipBg, .btn-group-vote {
   background-color: rgba(255, 255, 255, 0.5);

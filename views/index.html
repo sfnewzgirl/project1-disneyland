@@ -59,6 +59,7 @@
                 </div>
               </div>
             </div>
+            <br>
               <form class="form-create-comment" id="commentForm{{_id}}" data-protip-id={{_id}}>
                 <div class="form-group">
                   <label for="comment-text-area">Comment on a ProTip</label>
@@ -66,14 +67,17 @@
                   <button type="submit" name="submitCommentButton" class="btn btn-default submit-comment-button" data-protip-id={{_id}}>submit</button>
                 </div>
               </form>
-                <h1 class="inline-header">comments</h1>
-                <ul>
-                    {{#each tipComment}}
-                    <li class="comment-list proTipBg">
-                      {{commentBody}}
-                    </li>
-                    {{/each}}
-                </ul>
+              <br>
+                <div class="col-md-6 commentContainer">
+                  <label for="comment-text-area">Comment on a ProTip</label>
+                    <ul>
+                        {{#each tipComment}}
+                        <li class="comment-list proTipBg">
+                          {{commentBody}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
           {{/each}}
         </script>
       </div>

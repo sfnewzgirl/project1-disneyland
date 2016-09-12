@@ -17,12 +17,17 @@ $black : #000000;
 $mmYellow : #f9d70b;
 $disneyFont : "Disney", serif;
 
-.totalWrapper {
-  display: block;
+
+li {
+  list-style: none;
+}
+
+.commentContainer {
+  
 }
 
 .proTipTile {
-  padding-bottom: 20em;
+  padding-bottom: 16em;
   // max-height: 200px;
 }
 
