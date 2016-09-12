@@ -3,6 +3,9 @@
   font-family: Disney;
   src: local("waltographRegular"), url("/styles/waltographRegular.ttf"); }
 /* try 50% */
+.totalWrapper {
+  display: block; }
+
 .proTipTile {
   padding-bottom: 20em; }
 

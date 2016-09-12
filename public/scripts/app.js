@@ -179,4 +179,5 @@ function submitCommentForm (event) {
       render(json);
     });
   });
+  location.reload();
 }

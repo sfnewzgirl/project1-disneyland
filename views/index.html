@@ -22,6 +22,7 @@
 
     </head>
   <body>
+    <!-- add a new protip form -->
     <h1> ProTip </h1>
     <div class="container-fluid">
       <div class="row">
@@ -38,40 +39,39 @@
         </div>
       </div>
     </div>
+    <!-- one protip section -->
     <div id='voteWrapper' class="protipList container-fluid">
       <div class="row">
         <script id='voteTile' type="text/x-handlebars-template">
-            {{#each proTipVote}}
+          {{#each proTipVote}}
             <div class = "proTipTile">
-                <div class="col-md-8 col-md-push-1 proTipBg">
+              <div class="col-md-8 col-md-push-1 proTipBg">
                 <h1>{{tipTitle}}</h1>
                 <h1>{{tipDescription}}</h1>
                 <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
-                <!-- <button type="button" name="commentButton" class="btn btn-default comment-button" data-id="{{_id}}">Add a comment</button> -->
+                <button type="button" name="commentButton" class="btn btn-default comment-button" data-protip-id={{_id}}>Add a comment</button>
               </div>
-              <div class="col-md-1 col-md-pull-8 btn-group-vote">
-                <div class="vote circle">
-                  <div class="increment up upbutton" data-id={{_id}}></div>
-                  <div class="increment down downbutton" data-id={{_id}}></div>
-                  <div class="count">{{tipScore}}</div>
+                <div class="col-md-1 col-md-pull-8 btn-group-vote">
+                  <div class="vote circle">
+                    <div class="increment up upbutton" data-id={{_id}}></div>
+                    <div class="increment down downbutton" data-id={{_id}}></div>
+                    <div class="count">{{tipScore}}</div>
                 </div>
               </div>
             </div>
-          </div>
-          <button type="button" name="commentButton" class="btn btn-default comment-button" data-protip-id={{_id}}>Add a comment</button>
-          <form class="form-create-comment" id="commentForm{{_id}}" data-protip-id={{_id}}>
-            <div class="form-group">
-              <label for="comment-text-area">Comment on a ProTip</label>
-              <textarea class="form-control comment-body" rows="4" placeholder="Have anything to add?"></textarea>
-              <button type="submit" name="submitCommentButton" class="btn btn-default submit-comment-button" data-protip-id={{_id}}>submit</button>
-            </div>
-          </form>
-          <h1 class="inline-header">comments</h1>
-          <p class="comment-list">
-            {{#each tipComment}}
-              {{commentBody}}
-            {{/each}}
-          </p>
+              <form class="form-create-comment" id="commentForm{{_id}}" data-protip-id={{_id}}>
+                <div class="form-group">
+                  <label for="comment-text-area">Comment on a ProTip</label>
+                  <textarea class="form-control comment-body" rows="4" placeholder="Have anything to add?"></textarea>
+                  <button type="submit" name="submitCommentButton" class="btn btn-default submit-comment-button" data-protip-id={{_id}}>submit</button>
+                </div>
+              </form>
+                <h1 class="inline-header">comments</h1>
+                  <p class="comment-list proTipBg">
+                    {{#each tipComment}}
+                      {{commentBody}}
+                    {{/each}}
+                  </p>
           {{/each}}
         </script>
       </div>
