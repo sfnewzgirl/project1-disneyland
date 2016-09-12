@@ -166,15 +166,16 @@ function submitCommentForm (event) {
 
   $.post(commentUrl, commentToPost, function(data) {
     console.log(commentToPost);
-      //clears form and hids form
+    //clears form and hids form
     $commentField.val('');
     $commentForm.hide();
 
     //update the protip
     $.get('/api/protips/' + protipId, function(json) {
-      console.log("post-get", protipId);
+      console.log('/api/protips/' + protipId);
       // $('[data-protip-id=' + protipId + ']').remove();
       allProTips = json;
+      console.log(json);
       render(json);
     });
   });

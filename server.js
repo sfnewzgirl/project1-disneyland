@@ -32,6 +32,8 @@ app.get('/api/protips', function (req, res) {
   });
 });
 
+//GET ALL COMMENTS
+
 //LIST ONE PROTIP
 app.get('/api/protips/:id', function (req, res) {
   db.ProTip.findOne({_id: req.params.id}, function(err, data) {
