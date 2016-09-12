@@ -29,9 +29,9 @@ var commentList = [
   }
 ]
 
-proTipList.forEach(function(protip) {
-  protip.tipComment = commentList;
-});
+// proTipList.forEach(function(protip) {
+//   protip.tipComment = commentList;
+// });
 
 db.ProTip.remove({}, function(err,protips) {
 

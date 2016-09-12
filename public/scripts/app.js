@@ -171,16 +171,11 @@ function submitCommentForm (event) {
     $commentForm.hide();
 
     //update the protip
-    $.get('/api/protips/' + protipId, function(data) {
+    $.get('/api/protips/' + protipId, function(json) {
       console.log("post-get", protipId);
       // $('[data-protip-id=' + protipId + ']').remove();
-      render(data);
+      allProTips = json;
+      render(json);
     });
   });
 }
-// function createCommentSuccess (json) {
-//   $('.form-create-comment input').val('');
-//   $('#commentForm'+$(this).attr('data-id')).hide();
-//   allProTips = json;
-//   render(allProTips);
-// };
