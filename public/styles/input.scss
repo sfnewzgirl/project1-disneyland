@@ -40,7 +40,7 @@ $disneyFont : "Disney", serif;
 .vote {
   display: flex;
   flex-direction: column;
-  font-family: "Noto Sans";
+  font-family: $disneyFont;
   position: relative;
   width: $size;
   height: $size;
@@ -76,7 +76,7 @@ $disneyFont : "Disney", serif;
   margin: $size*.25;
   background:  white; //$bg;
   width: $size*.5;
-  font-size: $size*.75;
+  font-size: $size*.45;
   font-weight: bold;
   line-height: $size*.5;
   text-align: center;
