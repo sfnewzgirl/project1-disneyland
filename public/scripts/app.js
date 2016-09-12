@@ -61,13 +61,13 @@ function deleteProTip (event) {
   $.ajax({
     method: 'DELETE',
     url: 'api/protips/' + $(this).attr('data-id'),
-    success: deleteTip,
+    success: deleteTipSuccess,
     error: error,
   });
   location.reload();
 };
 
-function deleteTip (json) {
+function deleteTipSuccess (json) {
   var proTip = json;
   var proTipId = proTip._id;
   console.log('delete show ', proTipId);
