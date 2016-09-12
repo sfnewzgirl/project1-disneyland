@@ -67,11 +67,13 @@
                 </div>
               </form>
                 <h1 class="inline-header">comments</h1>
-                  <p class="comment-list proTipBg">
+                <ul>
                     {{#each tipComment}}
+                    <li class="comment-list proTipBg">
                       {{commentBody}}
+                    </li>
                     {{/each}}
-                  </p>
+                </ul>
           {{/each}}
         </script>
       </div>
