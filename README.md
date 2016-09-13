@@ -2,32 +2,33 @@
 
 ## Objective
 
-api that offered disneyland visitors information they cant easily get elsewhere
+Build an API that offers theme park visitors easy access to trip planning and advice they can't easily get elsewhere. While many books, websites and apps explain rides, attractions and services (many even rate those), inevitably the best advice comes from another park visitor who has been there many times before and has a wealth of knowledge in their head.
 
-triumphs - voting
-challenges, words of wisdom -
-Andrew Sass
-Misha embedded comments forms
+ProTips crowdsources the best advice and information for visitors all in one place. Users can read ProTips, write their own, and vote up or vote down a specific ProTip. Users can also comment on a ProTip to add their spin, additional information or even let other users know that ProTip is now outdated.
 
-add screenshot
+![alt text](public/images/disneyland-app-screenshot.png)
 
 ## Links
 
-Live URL:
+Live URL: https://parkprotips.herokuapp.com/
 
-GitHub Repository:
+GitHub Repository: https://github.com/sfnewzgirl/project1-disneyland
+
+Trello Link: https://trello.com/b/olwZIHaC/project1-parkprotips
 
 ## Technologies Used
 * HTML, CSS, JavaScript, jQuery
 * Node.js, Express, MongoDB, Mongoose
-* Sass, Bootstrap
-* Nod.js (front-end validation)
+* Sass
+* Nod.js (front-end validation-flex technical requirement)
+* Bootstrap (flex technical requirement)
 * Handlebars, AJAX
 * Heroku
+* Additional flex technical requirement (one-to-many model relationship)
 
 ## Code Examples
 
-Adding dataType to AJAX call
+A core feature of ProTips is a user's ability to up vote or down vote a ProTip. We did this with three key steps. We used Sass to create an interactive button, split into an up and down vote. Then we created an AJAX call on the event listener that sent a dataType directly to the server.
 
 ```
 function upVote (event) {
@@ -41,7 +42,7 @@ function upVote (event) {
  });
 }
 ```
-Server function to edit voteScore
+Next we create a function on the server that edited the tipScore based on the user's button click. Allowing the user to edit an attribute and save it on the database.
 
 ```
 app.put('/api/protips/:id', function (req, res) {
@@ -61,8 +62,8 @@ app.put('/api/protips/:id', function (req, res) {
 
 ## Wireframes
 
-text
+ProTips Wireframe
 
-## Future Ides
+## Future Ideas
 Create an API for more parks.
 Expand vote up and vote down feature to rides, individual attractions, etc.
