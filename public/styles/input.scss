@@ -7,7 +7,7 @@
 }
 
 
-$size : 5rem;
+$size : 7rem;
 $border-width : .5rem;
 $radius : 1rem; /* try 50% */
 $transition : .3s;
@@ -30,8 +30,8 @@ li {
 label {
   font-family: $proTipFont;
   font-size: 2.5em;
-  color: #006e99;
-  text-shadow: 4px 2px #0089bf;
+  color: $red;
+  text-shadow: 1px 1px white;
 }
 
 .commentContainer {
@@ -57,6 +57,12 @@ label {
 .proTipBg {
   background-color: rgba(255, 255, 255, .7);
   border: 3px solid $black;
+}
+
+.commentBg {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid #f20505;
+  padding: .1em 0 .1em .2em;
 }
 
 .btn-group-vote {
