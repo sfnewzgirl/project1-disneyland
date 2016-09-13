@@ -32,8 +32,6 @@ app.get('/api/protips', function (req, res) {
   });
 });
 
-//GET ALL COMMENTS
-
 //LIST ONE PROTIP
 app.get('/api/protips/:id', function (req, res) {
   db.ProTip.findOne({_id: req.params.id}, function(err, data) {
@@ -98,6 +96,15 @@ app.post('/api/protips/:proTipId/comments', function (req, res) {
    });
 });
 
+//SHOW ALL COMMENTS FOR ONE PROTIP
+app.get('/api/protips/:id/comments', function (req, res) {
+  // var tipComment = '_id.tipComment';
+    db.ProTip.findOne({_id: req.params.id}, function(err, data) {
+    if (err) {return console.log("get error: " + err);}
+    res.json(data.tipComment);
+  });
+});
+
 //JSON ENDPOINTS
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
@@ -112,7 +119,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/protips/:id", description: "lists one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id/tipScore", description: "update one protip score"},
       {method: "POST", path: "/api/protips/:protipId/comments", description: "adds one comment"},
-      // {method: "GET", path: "/api/protips/:protipId/comments", description: "gets all comments for one protip"},
+      {method: "GET", path: "/api/protips/:protipId/comments", description: "gets all comments for one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id", description: "updates one protip"},
       {method: "DELETE", path: "api/protips/:id", description: "deletes one protips"},
     ]
