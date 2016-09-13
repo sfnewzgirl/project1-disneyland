@@ -7,7 +7,7 @@
 }
 
 
-$size : 5rem;
+$size : 7rem;
 $border-width : .5rem;
 $radius : 1rem; /* try 50% */
 $transition : .3s;
@@ -18,9 +18,10 @@ $black : #000000;
 $mmYellow : #f9d70b;
 $disneyFont : "Disney", serif;
 $proTipFont : "Roboto", serif;
+$proTipTextSize : 2em;
 
 h2 {
-  padding-left: 2em;
+  padding-left: $proTipTextSize;
 }
 
 li {
@@ -30,12 +31,12 @@ li {
 label {
   font-family: $proTipFont;
   font-size: 2.5em;
-  color: #006e99;
-  text-shadow: 4px 2px #0089bf;
+  color: $red;
+  text-shadow: 1px 1px white;
 }
 
-.commentContainer {
-  margin-left: 134px;
+.btn {
+  margin: $proTipTextSize*.1 0;
 }
 
 .proTipText {
@@ -45,11 +46,6 @@ label {
   text-shadow: 3px 3px #575452;
 }
 
-.comment-form {
-  padding-left: 117px;
-  max-width: 1058px;
-}
-
 .proTipTile {
   padding-bottom: 16em;
 }
@@ -57,6 +53,31 @@ label {
 .proTipBg {
   background-color: rgba(255, 255, 255, .7);
   border: 3px solid $black;
+}
+
+.comment-form {
+  margin-top: -48px;
+  padding-left: 117px;
+  max-width: 1058px;
+}
+
+.commentBg {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid #f20505;
+  padding: $proTipTextSize*.2;
+}
+
+.commentTitle {
+  font-weight: bold;
+  font-size: $proTipTextSize;
+}
+
+.commentDescription {
+  font-size: $proTipTextSize*.75;
+}
+
+.commentContainer {
+  margin-left: 134px;
 }
 
 .btn-group-vote {
