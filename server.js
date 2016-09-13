@@ -98,6 +98,14 @@ app.post('/api/protips/:proTipId/comments', function (req, res) {
    });
 });
 
+//SHOW ALL COMMENTS FOR ONE PROTIP
+app.get('/api/protips/:id/comments', function (req, res) {
+   db.ProTip.findOne({_id: req.params.id}, function(err, data) {
+   if (err) {return console.log("get error: " + err);}
+   res.json(data.tipComment);
+ });
+});
+
 //JSON ENDPOINTS
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
