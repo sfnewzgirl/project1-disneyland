@@ -1,5 +1,7 @@
 # Project 1
 
+Andrew Vinocur & Misha LeClair
+
 ## Objective
 
 Build an API that offers theme park visitors easy access to trip planning and advice they can't easily get elsewhere. While many books, websites and apps explain rides, attractions and services (many even rate those), inevitably the best advice comes from another park visitor who has been there many times before and has a wealth of knowledge in their head.
@@ -62,7 +64,7 @@ app.put('/api/protips/:id', function (req, res) {
 
 ## Wireframes
 
-ProTips Wireframe
+![alt text](public/images/disneyland-app-wireframe.jpg)
 
 ## Future Ideas
 Create an API for more parks.
