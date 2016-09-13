@@ -10,6 +10,15 @@ h2 {
 li {
   list-style: none; }
 
+label {
+  font-family: "Roboto", serif;
+  font-size: 2.5em;
+  color: #006e99;
+  text-shadow: 4px 2px #0089bf; }
+
+.commentContainer {
+  margin-left: 134px; }
+
 .proTipText {
   font-family: "Roboto", serif;
   font-size: 3.25em;
