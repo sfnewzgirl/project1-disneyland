@@ -53,7 +53,6 @@ app.post('/api/protips', function (req, res) {
       if (err) {
         return console.log("save error: " + err);
       } else {
-      console.log("saved a protip");
       res.json(newProTip);
       }
     });
@@ -61,27 +60,27 @@ app.post('/api/protips', function (req, res) {
 
 //DELETE A PROTIP
 app.delete('/api/protips/:id', function (req, res) {
-  console.log('you want to delete ', req.params);
   var proTipId = req.params.id;
   db.ProTip.findOneAndRemove({ _id: proTipId }, function (err, deleteTip) {
-    res.json(deleteTip);
+    if (err) {
+      return console.log("delete error: " + err);
+    } else {
+        res.json(deleteTip);
+      };
   });
 });
 
 //UPDATE ONE PROTIP SCORE
 app.put('/api/protips/:id', function (req, res) {
-  console.log('***********************HEY YOU PINGED ONE PROTIP***********************');
   db.ProTip.findOne({_id: req.params.id}, function(err, selectedProTip) {
-    console.log(req.body.voteStatus);
       if (req.body.voteStatus == 'up') {
         selectedProTip.tipScore = selectedProTip.tipScore + 1;
       } else if (req.body.voteStatus == 'down') {
         selectedProTip.tipScore = selectedProTip.tipScore - 1;
       };
     selectedProTip.save(function (err, updatedTipScore) {
-      if (err) {return console.log(err);}
+      if (err) {return console.log("put error: " + err);}
       res.json(updatedTipScore);
-      console.log(updatedTipScore);
     });
   });
 });
@@ -92,8 +91,10 @@ app.post('/api/protips/:proTipId/comments', function (req, res) {
      var newComment = new db.Comment({commentBody: req.body.commentBody});
      selectedProTip.tipComment.push(newComment);
      selectedProTip.save(function(err, savedComment) {
-       console.log('newComment');
-       res.json(newComment);
+       if (err) {return console.log("post error: " + err);
+         } else {
+           res.json(newComment);
+         }
      });
    });
 });
@@ -108,7 +109,6 @@ app.get('/api/protips/:id/comments', function (req, res) {
 
 //JSON ENDPOINTS
 app.get('/api', function api_index(req, res) {
-  // TODO: Document all your api endpoints below
   res.json({
     ParkProTipsEndpoints: true,
     message: "Welcome to Our Park Pro Tips API!",
@@ -120,7 +120,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/protips/:id", description: "lists one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id/tipScore", description: "update one protip score"},
       {method: "POST", path: "/api/protips/:protipId/comments", description: "adds one comment"},
-      // {method: "GET", path: "/api/protips/:protipId/comments", description: "gets all comments for one protip"},
+      {method: "GET", path: "/api/protips/:protipId/comments", description: "gets all comments for one protip"},
       {method: "PUT/PATCH", path: "/api/protips/:id", description: "updates one protip"},
       {method: "DELETE", path: "api/protips/:id", description: "deletes one protips"},
     ]
