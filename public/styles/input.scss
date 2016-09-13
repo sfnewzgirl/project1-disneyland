@@ -35,17 +35,8 @@ label {
   text-shadow: 1px 1px white;
 }
 
-.commentTitle {
-  font-weight: bold;
-  font-size: $proTipTextSize;
-}
-
-.commentDescription {
-  font-size: $proTipTextSize*.75;
-}
-
-.commentContainer {
-  margin-left: 134px;
+.btn {
+  margin: $proTipTextSize*.1 0;
 }
 
 .proTipText {
@@ -53,11 +44,6 @@ label {
   font-size: 3.25em;
   color: #ffffff;
   text-shadow: 3px 3px #575452;
-}
-
-.comment-form {
-  padding-left: 117px;
-  max-width: 1058px;
 }
 
 .proTipTile {
@@ -69,10 +55,29 @@ label {
   border: 3px solid $black;
 }
 
+.comment-form {
+  margin-top: -48px;
+  padding-left: 117px;
+  max-width: 1058px;
+}
+
 .commentBg {
   background-color: rgba(255, 255, 255, 0.75);
   border: 1px solid #f20505;
-  padding: .1em 0 .1em .2em;
+  padding: $proTipTextSize*.2;
+}
+
+.commentTitle {
+  font-weight: bold;
+  font-size: $proTipTextSize;
+}
+
+.commentDescription {
+  font-size: $proTipTextSize*.75;
+}
+
+.commentContainer {
+  margin-left: 134px;
 }
 
 .btn-group-vote {

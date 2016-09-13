@@ -16,6 +16,32 @@ label {
   color: #f20505;
   text-shadow: 1px 1px white; }
 
+.btn {
+  margin: 0.2em 0; }
+
+.proTipText {
+  font-family: "Roboto", serif;
+  font-size: 3.25em;
+  color: #ffffff;
+  text-shadow: 3px 3px #575452; }
+
+.proTipTile {
+  padding-bottom: 16em; }
+
+.proTipBg, .btn-group-vote {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid #000000; }
+
+.comment-form {
+  margin-top: -48px;
+  padding-left: 117px;
+  max-width: 1058px; }
+
+.commentBg {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid #f20505;
+  padding: 0.4em; }
+
 .commentTitle {
   font-weight: bold;
   font-size: 2em; }
@@ -25,28 +51,6 @@ label {
 
 .commentContainer {
   margin-left: 134px; }
-
-.proTipText {
-  font-family: "Roboto", serif;
-  font-size: 3.25em;
-  color: #ffffff;
-  text-shadow: 3px 3px #575452; }
-
-.comment-form {
-  padding-left: 117px;
-  max-width: 1058px; }
-
-.proTipTile {
-  padding-bottom: 16em; }
-
-.proTipBg, .btn-group-vote {
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 3px solid #000000; }
-
-.commentBg {
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 1px solid #f20505;
-  padding: .1em 0 .1em .2em; }
 
 .circle .up {
   border-radius: 7rem 7rem 0 0;
