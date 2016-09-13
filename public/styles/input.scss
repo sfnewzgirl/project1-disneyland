@@ -21,7 +21,7 @@ $proTipFont : "Roboto", serif;
 $proTipTextSize : 2em;
 
 h2 {
-  padding-left: 2em;
+  padding-left: $proTipTextSize;
 }
 
 li {
