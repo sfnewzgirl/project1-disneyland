@@ -10,17 +10,21 @@ ProTips crowdsources the best advice and information for visitors all in one pla
 
 ## Links
 
-Live URL:
+Live URL: https://parkprotips.herokuapp.com/
 
-GitHub Repository:
+GitHub Repository: https://github.com/sfnewzgirl/project1-disneyland
+
+Trello Link: https://trello.com/b/olwZIHaC/project1-parkprotips
 
 ## Technologies Used
 * HTML, CSS, JavaScript, jQuery
 * Node.js, Express, MongoDB, Mongoose
-* Sass, Bootstrap
-* Nod.js (front-end validation)
+* Sass
+* Nod.js (front-end validation-flex technical requirement)
+* Bootstrap (flex technical requirement)
 * Handlebars, AJAX
 * Heroku
+* Additional flex technical requirement (one-to-many model relationship)
 
 ## Code Examples
 
