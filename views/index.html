@@ -46,8 +46,10 @@
           {{#each proTipVote}}
             <div class = "proTipTile">
               <div class="col-md-8 col-md-push-1 proTipBg">
-                <h1>{{tipTitle}}</h1>
-                <h1>{{tipDescription}}</h1>
+                <span class="commentTitle">{{tipTitle}}</span>
+                <br>
+                <span class="commentDescription">{{tipDescription}}</span>
+                <br>
                 <button type="button" class="btn btn-danger" data-id={{_id}}>Delete ProTip</button>
                 <button type="button" name="commentButton" class="btn btn-default comment-button" data-protip-id={{_id}}>Add a comment</button>
               </div>
