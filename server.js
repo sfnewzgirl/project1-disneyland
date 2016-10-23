@@ -111,7 +111,7 @@ app.get('/api', function api_index(req, res) {
     ParkProTipsEndpoints: true,
     message: "Welcome to Our Park Pro Tips API!",
     documentationUrl: "https://github.com/sfnewzgirl/project1-disneyland/blob/master/README.md",
-    baseUrl: "https://parkprotips.herokuapp.com/",
+    baseUrl: "https://misha.example.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Homepage"},
       {method: "GET", path: "/api/protips", description: "lists all protips"},
